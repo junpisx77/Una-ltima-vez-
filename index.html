@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Una Última Vez</title>
+  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: url('fondo.jpg') no-repeat center center/cover;
+      font-family: 'Quicksand', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    }
+
+    .card {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 50px;
+      border-radius: 20px;
+      max-width: 700px;
+      text-align: center;
+      animation: fadeIn 2s ease-in;
+    }
+
+    h1 {
+      font-family: 'Parisienne', cursive;
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    p {
+      font-size: 1.2em;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .botones {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    button {
+      padding: 15px 30px;
+      border: none;
+      border-radius: 30px;
+      background: #ff4d6d;
+      color: white;
+      font-size: 1em;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(255,77,109,0.4);
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    .no-btn {
+      background: #666666;
+    }
+
+    .no-btn:hover {
+      background: #444444;
+    }
+
+    #respuesta {
+      display: none;
+      font-size: 1.3em;
+      margin-top: 30px;
+      opacity: 0;
+      transition: opacity 1s ease;
+      color: #ffb3c1;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Una última vez…</h1>
+    <p>
+      Si esta es la despedida final, déjame mirarte a los ojos<br>
+      una vez más. Sin reproches, sin palabras.<br><br>
+      Solo quiero abrazarte… y robarle a tu boca<br>
+      el beso más triste y más eterno de todos.<br><br>
+      Después… lo dejaré ir todo.
+    </p>
+    <div class="botones">
+      <button onclick="respuestaSi()">Sí… una última vez</button>
+      <button class="no-btn" onclick="respuestaNo()">No… es mejor así</button>
+    </div>
+    <div id="respuesta"></div>
+  </div>
+
+  <script>
+    function mostrarMensaje(texto) {
+      const mensaje = document.getElementById("respuesta");
+      mensaje.innerHTML = texto;
+      mensaje.style.display = "block";
+      setTimeout(() => {
+        mensaje.style.opacity = 1;
+      }, 100);
+    }
+
+    function respuestaSi() {
+      mostrarMensaje('Lugar: Donde soliamos vernos normalmente, Fecha: 15-04-2025, Hora: 04:00 PM');
+    }
+
+    function respuestaNo() {
+      mostrarMensaje('Entiendo cuidate');
+    }
+  </script>
+</body>
+</html>
